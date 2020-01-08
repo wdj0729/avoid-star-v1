@@ -1,0 +1,23 @@
+﻿  avoidstar.cpp
+C:\Users\Jay\source\repos\AvoidStar\AvoidStar\avoidstar.cpp(82,22): warning C4838: 'const int'에서 'SHORT'(으)로의 변환에는 축소 변환이 필요합니다.
+C:\Users\Jay\source\repos\AvoidStar\AvoidStar\avoidstar.cpp(82,39): warning C4838: 'int'에서 'SHORT'(으)로의 변환에는 축소 변환이 필요합니다.
+C:\Users\Jay\source\repos\AvoidStar\AvoidStar\avoidstar.cpp(100,29): error C2664: 'void drawToBackBuffer(const int,const int,char *)': 인수 3을(를) 'const char [2]'에서 'char *'(으)로 변환할 수 없습니다.
+C:\Users\Jay\source\repos\AvoidStar\AvoidStar\avoidstar.cpp(100,26): message : 문자열 리터럴로부터의 변환은 const 한정자가 손실됩니다(/Zc:strictStrings 참조).
+C:\Users\Jay\source\repos\AvoidStar\AvoidStar\avoidstar.cpp(42,6): message : 'drawToBackBuffer' 선언을 참조하십시오.
+C:\Users\Jay\source\repos\AvoidStar\AvoidStar\avoidstar.cpp(106,29): error C2664: 'void drawToBackBuffer(const int,const int,char *)': 인수 3을(를) 'const char [2]'에서 'char *'(으)로 변환할 수 없습니다.
+C:\Users\Jay\source\repos\AvoidStar\AvoidStar\avoidstar.cpp(106,26): message : 문자열 리터럴로부터의 변환은 const 한정자가 손실됩니다(/Zc:strictStrings 참조).
+C:\Users\Jay\source\repos\AvoidStar\AvoidStar\avoidstar.cpp(42,6): message : 'drawToBackBuffer' 선언을 참조하십시오.
+C:\Users\Jay\source\repos\AvoidStar\AvoidStar\avoidstar.cpp(133,1): error C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : 'sprintf' 선언을 참조하십시오.
+C:\Users\Jay\source\repos\AvoidStar\AvoidStar\avoidstar.cpp(138,1): error C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(1774): message : 'sprintf' 선언을 참조하십시오.
+C:\Users\Jay\source\repos\AvoidStar\AvoidStar\avoidstar.cpp(196,63): error C2440: '=': 'const char [30]'에서 'char *'(으)로 변환할 수 없습니다.
+C:\Users\Jay\source\repos\AvoidStar\AvoidStar\avoidstar.cpp(196,18): message : 문자열 리터럴로부터의 변환은 const 한정자가 손실됩니다(/Zc:strictStrings 참조).
+C:\Users\Jay\source\repos\AvoidStar\AvoidStar\avoidstar.cpp(209,24): error C2440: '=': 'const char [2]'에서 'char *'(으)로 변환할 수 없습니다.
+C:\Users\Jay\source\repos\AvoidStar\AvoidStar\avoidstar.cpp(209,21): message : 문자열 리터럴로부터의 변환은 const 한정자가 손실됩니다(/Zc:strictStrings 참조).
+C:\Users\Jay\source\repos\AvoidStar\AvoidStar\avoidstar.cpp(271,25): error C2440: '=': 'const char [1]'에서 'char *'(으)로 변환할 수 없습니다.
+C:\Users\Jay\source\repos\AvoidStar\AvoidStar\avoidstar.cpp(271,23): message : 문자열 리터럴로부터의 변환은 const 한정자가 손실됩니다(/Zc:strictStrings 참조).
+C:\Users\Jay\source\repos\AvoidStar\AvoidStar\avoidstar.cpp(276,25): error C2440: '=': 'const char [1]'에서 'char *'(으)로 변환할 수 없습니다.
+C:\Users\Jay\source\repos\AvoidStar\AvoidStar\avoidstar.cpp(276,23): message : 문자열 리터럴로부터의 변환은 const 한정자가 손실됩니다(/Zc:strictStrings 참조).
+C:\Users\Jay\source\repos\AvoidStar\AvoidStar\avoidstar.cpp(289,26): error C2440: '=': 'const char [2]'에서 'char *'(으)로 변환할 수 없습니다.
+C:\Users\Jay\source\repos\AvoidStar\AvoidStar\avoidstar.cpp(289,23): message : 문자열 리터럴로부터의 변환은 const 한정자가 손실됩니다(/Zc:strictStrings 참조).
