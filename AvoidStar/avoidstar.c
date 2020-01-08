@@ -7,22 +7,22 @@
 
 #pragma comment(lib,"winmm.lib")
 
-#define SCR_WIDTH 69 //ÄÜ¼ÖÃ¢ °¡·Î
-#define SCR_HEIGHT 30 //ÄÜ¼ÖÃ¢ ¼¼·Î
-#define Enemy_Num 25 //º°ÀÇ °³¼ö
-#define Rand_Num 15 //º° yÀ§Ä¡ ³­¼ö
-#define Speed 80 //º°ÀÌ ¶³¾îÁö´Â ¼Óµµ
+#define SCR_WIDTH 69 //ì½˜ì†”ì°½ ê°€ë¡œ
+#define SCR_HEIGHT 30 //ì½˜ì†”ì°½ ì„¸ë¡œ
+#define Enemy_Num 25 //ë³„ì˜ ê°œìˆ˜
+#define Rand_Num 15 //ë³„ yìœ„ì¹˜ ë‚œìˆ˜
+#define Speed 80 //ë³„ì´ ë–¨ì–´ì§€ëŠ” ì†ë„
 
-typedef struct //°ø¿ë ±¸Á¶Ã¼
+typedef struct //ê³µìš© êµ¬ì¡°ì²´
 {
-	int state_; //Ä³¸¯ÅÍÀÇ »óÅÂ
-	int width_; //Ä³¸¯ÅÍÀÇ °¡·Î
-	int height_; //Ä³¸¯ÅÍÀÇ ¼¼·Î
+	int state_; //ìºë¦­í„°ì˜ ìƒíƒœ
+	int width_; //ìºë¦­í„°ì˜ ê°€ë¡œ
+	int height_; //ìºë¦­í„°ì˜ ì„¸ë¡œ
 
-	int pos_x_; //xÃà À§Ä¡
-	int pos_y_; //yÃà À§Ä¡
+	int pos_x_; //xì¶• ìœ„ì¹˜
+	int pos_y_; //yì¶• ìœ„ì¹˜
 
-	int speed; //º°ÀÇ ¼Óµµ
+	int speed; //ë³„ì˜ ì†ë„
 
 	char* image_;
 }Object, * pObject;
@@ -30,16 +30,16 @@ typedef struct //°ø¿ë ±¸Á¶Ã¼
 Object player;
 Object enemy[Enemy_Num];
 
-int score; //Á¡¼ö
-int life; //¸ñ¼û
+int score; //ì ìˆ˜
+int life; //ëª©ìˆ¨
 
-//´õºí ¹öÆÛ¸µ
-char front_buffer[SCR_HEIGHT][SCR_WIDTH]; //ÇöÀç È­¸é »óÈ²
-char back_buffer[SCR_HEIGHT][SCR_WIDTH]; //ÀÛ¾÷ÇÒ È­¸é
+//ë”ë¸” ë²„í¼ë§
+char front_buffer[SCR_HEIGHT][SCR_WIDTH]; //í˜„ì¬ í™”ë©´ ìƒí™©
+char back_buffer[SCR_HEIGHT][SCR_WIDTH]; //ì‘ì—…í•  í™”ë©´
 
-void moveCursorTo(const int x, const int y);// ÁÂÇ¥ÀÌµ¿ÇÔ¼ö
+void moveCursorTo(const int x, const int y);// ì¢Œí‘œì´ë™í•¨ìˆ˜
 
-void drawToBackBuffer(const int i, const int j, char* image) //°¡»óÀÇ µµÈ­Áö
+void drawToBackBuffer(const int i, const int j, char* image) //ê°€ìƒì˜ ë„í™”ì§€
 {
 	int ix = 0;
 	while (1)
@@ -52,9 +52,9 @@ void drawToBackBuffer(const int i, const int j, char* image) //°¡»óÀÇ µµÈ­Áö
 	}
 }
 
-void render()//ÄÄÇ»ÅÍ ±×·¡ÇÈÀ» ¸¸µå´Â ´Ü°è
+void render()//ì»´í“¨í„° ê·¸ë˜í”½ì„ ë§Œë“œëŠ” ë‹¨ê³„
 {
-	//¹Ù²ï ºÎºĞÀ» ´Ù½Ã ±×¸²
+	//ë°”ë€ ë¶€ë¶„ì„ ë‹¤ì‹œ ê·¸ë¦¼
 	for (int j = 0; j < SCR_HEIGHT; j++)
 		for (int i = 0; i < SCR_WIDTH; i++)
 		{
@@ -77,21 +77,21 @@ void render()//ÄÄÇ»ÅÍ ±×·¡ÇÈÀ» ¸¸µå´Â ´Ü°è
 		}
 }
 
-void moveCursorTo(const int x, const int y) //ÁÂÇ¥ ÀÌµ¿ ÇÔ¼ö
+void moveCursorTo(const int x, const int y) //ì¢Œí‘œ ì´ë™ í•¨ìˆ˜
 {
 	const COORD pos = { x,SCR_HEIGHT - y - 1 };
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), pos);
 }
 
 
-void setcolor(int color, int bgcolor) //»ö±ò º¯È­
+void setcolor(int color, int bgcolor) //ìƒ‰ê¹” ë³€í™”
 {
 	color &= 0xf;
 	bgcolor &= 0xf;
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), (bgcolor << 4) | color);
 }
 
-void drawBoundary() //°ÔÀÓ °ø°£
+void drawBoundary() //ê²Œì„ ê³µê°„
 {
 	int i = 0;
 
@@ -107,7 +107,7 @@ void drawBoundary() //°ÔÀÓ °ø°£
 	}
 }
 
-void drawAll()//±×¸®´Â ÇÔ¼ö ¸ğÀ½
+void drawAll()//ê·¸ë¦¬ëŠ” í•¨ìˆ˜ ëª¨ìŒ
 {
 	//draw boundary
 	drawBoundary();
@@ -128,19 +128,19 @@ void drawAll()//±×¸®´Â ÇÔ¼ö ¸ğÀ½
 
 	drawToBackBuffer(player.pos_x_, player.pos_y_, current_state_image);
 
-	//Á¡¼ö Ãâ·Â
+	//ì ìˆ˜ ì¶œë ¥
 	char scoretext[15];
 	sprintf(scoretext, "Score: %d", score);
 	drawToBackBuffer(1, 0, scoretext);
 
-	//¸ñ¼û Ç¥½Ã
+	//ëª©ìˆ¨ í‘œì‹œ
 	char lifepoint[15];
 	sprintf(lifepoint, "Life: %d", life);
 	drawToBackBuffer(15, 0, lifepoint);
 }
 
 
-void GameSpeed() //º°ÀÌ ¶³¾îÁö´Â ¼Óµµ
+void GameSpeed() //ë³„ì´ ë–¨ì–´ì§€ëŠ” ì†ë„
 {
 	if (score < 2000)
 	{
@@ -175,11 +175,11 @@ void GameSpeed() //º°ÀÌ ¶³¾îÁö´Â ¼Óµµ
 int main()
 {
 	boolean Loop = true;
-	//¹è°æÀ½¾Ç
+	//ë°°ê²½ìŒì•…
 	PlaySound(TEXT("main.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
-	//ÄÜ¼ÖÃ¢ Å©±â
+	//ì½˜ì†”ì°½ í¬ê¸°
 	system("mode con cols=69 lines=30");
-	//¹öÆÛ ÃÊ±âÈ­
+	//ë²„í¼ ì´ˆê¸°í™”
 	for (int j = 0; j < SCR_HEIGHT; j++)
 	{
 		for (int i = 0; i < SCR_WIDTH; i++)
@@ -189,24 +189,24 @@ int main()
 		}
 	}
 
-	score = 0; //ÃÊ±â Á¡¼ö
-	life = 5; //¸ñ¼û
+	score = 0; //ì´ˆê¸° ì ìˆ˜
+	life = 5; //ëª©ìˆ¨
 
-	player.state_ = 0; //ÃÊ±â »óÅÂ
-	player.image_ = "P\0X\0X\0X\0X\0X\0X\0X\0X\0X\0X\0X\0X\0X\0X"; //ÇÃ·¹ÀÌ¾î »óÅÂ
+	player.state_ = 0; //ì´ˆê¸° ìƒíƒœ
+	player.image_ = "P\0X\0X\0X\0X\0X\0X\0X\0X\0X\0X\0X\0X\0X\0X"; //í”Œë ˆì´ì–´ ìƒíƒœ
 	player.width_ = 1;
 	player.height_ = 1;
 	player.pos_x_ = 32;
 	player.pos_y_ = 1;
 
-	//º° »ı¼º
+	//ë³„ ìƒì„±
 
 	for (int i = 0; i < Enemy_Num; i++)
 	{
-		const int dice = rand() % (SCR_WIDTH - 2); //xÁÂÇ¥ ³­¼ö
-		const int dice2 = rand() % Rand_Num; //yÁÂÇ¥ ³­¼ö
+		const int dice = rand() % (SCR_WIDTH - 2); //xì¢Œí‘œ ë‚œìˆ˜
+		const int dice2 = rand() % Rand_Num; //yì¢Œí‘œ ë‚œìˆ˜
 
-		enemy[i].image_ = "*"; //ÇÇÇÒ ¹°Ã¼
+		enemy[i].image_ = "*"; //í”¼í•  ë¬¼ì²´
 		enemy[i].width_ = 1;
 		enemy[i].height_ = 1;
 		enemy[i].pos_x_ = dice + 1;
@@ -219,15 +219,15 @@ int main()
 	cur_info.bVisible = false;
 	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cur_info);
 
-	//°ÔÀÓ ½ÃÀÛÀü È­¸é
+	//ê²Œì„ ì‹œì‘ì „ í™”ë©´
 	moveCursorTo(12, 20);
-	printf("°ÔÀÓ¸ñÇ¥: ÇÏ´Ã¿¡¼­ ¶³¾îÁö´Â º°À» ÇÇÇØ »ì¾Æ³²ÀÚ!");
+	printf("ê²Œì„ëª©í‘œ: í•˜ëŠ˜ì—ì„œ ë–¨ì–´ì§€ëŠ” ë³„ì„ í”¼í•´ ì‚´ì•„ë‚¨ì!");
 	moveCursorTo(12, 17);
-	printf("Á¶ÀÛ¹æ¹ı: ¹æÇâÅ°  <-  -> ");
+	printf("ì¡°ì‘ë°©ë²•: ë°©í–¥í‚¤  <-  -> ");
 	moveCursorTo(12, 14);
-	printf("ÁÖÀÇ»çÇ×: º°ÀÌ Á¡Á¡ ºü¸£°í °¡±õ°Ô ¶³¾îÁı´Ï´Ù!");
+	printf("ì£¼ì˜ì‚¬í•­: ë³„ì´ ì ì  ë¹ ë¥´ê³  ê°€ê¹ê²Œ ë–¨ì–´ì§‘ë‹ˆë‹¤!");
 	moveCursorTo(20, 11);
-	printf("¾Æ¹« Å°³ª ´©¸£¸é ½ÃÀÛÇÕ´Ï´Ù!");
+	printf("ì•„ë¬´ í‚¤ë‚˜ ëˆ„ë¥´ë©´ ì‹œì‘í•©ë‹ˆë‹¤!");
 
 	_getch();
 	moveCursorTo(0, 0);
@@ -235,7 +235,7 @@ int main()
 
 	while (Loop) //main game loop
 	{
-		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE); //¿ø·¡»ö
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE); //ì›ë˜ìƒ‰
 
 		if (GetAsyncKeyState(VK_LEFT) & 0x8000)
 		{
@@ -254,7 +254,7 @@ int main()
 		if (player.state_ > 0)
 		{
 			player.state_--;
-			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED | FOREGROUND_INTENSITY); //»¡°£»ö
+			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED | FOREGROUND_INTENSITY); //ë¹¨ê°„ìƒ‰
 		}
 
 		for (int i = 0; i < Enemy_Num; i++)
@@ -266,27 +266,27 @@ int main()
 			if (enemy[i].pos_y_ < player.height_)
 				enemy[i].pos_y_ = player.height_;
 
-			if (enemy[i].pos_y_ == 1) //º°ÀÌ ¹Ù´Ú¿¡ ´êÀ»¶§
+			if (enemy[i].pos_y_ == 1) //ë³„ì´ ë°”ë‹¥ì— ë‹¿ì„ë•Œ
 			{
 				enemy[i].image_ = "";
 				score = score + 5;
 			}
-			if (enemy[i].pos_y_ == player.pos_y_ && player.pos_x_ == enemy[i].pos_x_) //º°°ú ÇÃ·¹ÀÌ¾î Ãæµ¹½Ã
+			if (enemy[i].pos_y_ == player.pos_y_ && player.pos_x_ == enemy[i].pos_x_) //ë³„ê³¼ í”Œë ˆì´ì–´ ì¶©ëŒì‹œ
 			{
 				enemy[i].image_ = "";
 				if (life > 0)
 					life--;
 				player.state_ = 15;
 				Beep(1000, 234);
-				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED | FOREGROUND_INTENSITY); //»¡°£»ö
+				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED | FOREGROUND_INTENSITY); //ë¹¨ê°„ìƒ‰
 			}
 
-			if (strcmp(enemy[i].image_, "") == 0) //¾ø¾îÁö¸é ´Ù½Ã »ı¼º
+			if (strcmp(enemy[i].image_, "") == 0) //ì—†ì–´ì§€ë©´ ë‹¤ì‹œ ìƒì„±
 			{
 				const int dice = rand() % (SCR_WIDTH - 2);
 				const int dice2 = rand() % Rand_Num;
 
-				enemy[i].image_ = "*"; //ÇÇÇÒ ¹°Ã¼
+				enemy[i].image_ = "*"; //í”¼í•  ë¬¼ì²´
 				enemy[i].width_ = 1;
 				enemy[i].height_ = 1;
 				enemy[i].pos_x_ = dice + 1;
@@ -332,8 +332,8 @@ int main()
 		}
 	}
 
-	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE); //¿ø·¡»ö
-	//Á¾·áÈ­¸é
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE); //ì›ë˜ìƒ‰
+	//ì¢…ë£Œí™”ë©´
 	system("cls");
 	moveCursorTo(28, 17);
 	printf("Game Over!");
